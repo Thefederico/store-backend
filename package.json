@@ -30,5 +30,8 @@
     "extends": [
       "./node_modules/standard/eslintrc.json"
     ]
+  },
+  "engines": {
+    "node": "14.x"
   }
 }
