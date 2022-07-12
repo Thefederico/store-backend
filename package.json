@@ -2,10 +2,10 @@
   "name": "store-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "dev": "nodemon main.js --exec babel-node",
-    "start": "babel-node main.js",
+    "dev": "nodemon main.js",
+    "start": "node main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -19,10 +19,6 @@
     "joi": "^17.6.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.18.6",
-    "@babel/core": "^7.18.6",
-    "@babel/node": "^7.18.6",
-    "@babel/preset-env": "^7.18.6",
     "nodemon": "^2.0.19",
     "standard": "^17.0.0"
   },
@@ -32,6 +28,6 @@
     ]
   },
   "engines": {
-    "node": "16.x"
+    "node": "16.15.1"
   }
 }

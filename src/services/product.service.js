@@ -1,5 +1,5 @@
-import { faker } from '@faker-js/faker'
-import boom from '@hapi/boom'
+const { faker } = require('@faker-js/faker')
+const boom = require('@hapi/boom')
 
 class ProductService {
   constructor () {
@@ -68,4 +68,4 @@ class ProductService {
   }
 }
 
-export default ProductService
+module.exports = ProductService

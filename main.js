@@ -1,12 +1,12 @@
-import express from 'express'
-import cors from 'cors'
+const express = require('express')
+const cors = require('cors')
 
-import routesApi from './src/routes/index'
-import {
+const routesApi = require('./src/routes/index')
+const {
   logErrors,
   errorHandler,
   boomErrorHandler
-} from './src/middlewares/error.handler'
+} = require('./src/middlewares/error.handler')
 
 const app = express()
 const port = process.env.PORT || 3000

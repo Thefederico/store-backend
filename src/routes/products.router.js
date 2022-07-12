@@ -1,11 +1,11 @@
-import express from 'express'
-import ProductService from '../services/product.service'
-import validatorHandler from '../middlewares/validator.handler'
-import {
+const express = require('express')
+const ProductService = require('../services/product.service')
+const validatorHandler = require('../middlewares/validator.handler')
+const {
   createProductSchema,
   updateProductSchema,
   getProductSchema
-} from '../schemas/product.schema'
+} = require('../schemas/product.schema')
 
 const router = express.Router()
 const service = new ProductService()
@@ -61,4 +61,4 @@ router.delete('/:id', async (req, res) => {
   res.json(rta)
 })
 
-export default router
+module.exports = router

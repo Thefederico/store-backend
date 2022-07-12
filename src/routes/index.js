@@ -1,6 +1,6 @@
-import express from 'express'
+const express = require('express')
 
-import productsRouter from './products.router'
+const productsRouter = require('./products.router')
 
 function routesApi (app) {
   const router = express.Router()
@@ -8,4 +8,4 @@ function routesApi (app) {
   router.use('/products', productsRouter)
 }
 
-export default routesApi
+module.exports = routesApi
