@@ -3,6 +3,7 @@ version: '3.8'
 services:
   db:
     image: postgres
+    container_name: db
     environment:
       - POSTGRES_DB=store
       - POSTGRES_USER=fede
@@ -14,6 +15,7 @@ services:
 
   pgadmin:
     image: dpage/pgadmin4
+    container_name: pgadmin
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@mail.com
       - PGADMIN_DEFAULT_PASSWORD=admin2144
