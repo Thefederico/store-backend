@@ -6,9 +6,9 @@ const routesApi = require('./src/routes/index')
 const {
   logErrors,
   errorHandler,
-  boomErrorHandler
+  boomErrorHandler,
+  ormErrorHandler
 } = require('./src/middlewares/error.handler')
-const getConnection = require('./src/libs/postgres')
 
 const app = express()
 const port = config.port
@@ -28,15 +28,11 @@ const options = {
 app.use(cors(options))
 
 app.get('/', (req, res) => res.send('Hello World!'))
-app.get('/task', async (req, res) => {
-  const client = await getConnection()
-  const response = client.query('SELECT * FROM task')
-  res.json((await response).rows)
-})
 
 routesApi(app)
 
 app.use(logErrors)
+app.use(ormErrorHandler)
 app.use(boomErrorHandler)
 app.use(errorHandler)
 
