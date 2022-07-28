@@ -57,8 +57,8 @@ router.patch(
 
 router.delete('/:id', async (req, res) => {
   const { id } = req.params
-  const rta = await service.delete(id)
-  res.json(rta)
+  const response = await service.delete(id)
+  res.json(response)
 })
 
 module.exports = router
