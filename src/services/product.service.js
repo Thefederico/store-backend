@@ -1,41 +1,17 @@
-const { faker } = require('@faker-js/faker')
 const boom = require('@hapi/boom')
-const sequelize = require('../libs/sequelize')
+const { models } = require('../libs/sequelize')
 
 class ProductService {
-  constructor () {
-    this.products = []
-    this.generateProducts()
-    /* this.pool = pool
-    this.pool.on('error', err => console.error(err)) */
-  }
-
-  generateProducts () {
-    const limit = 100
-    for (let index = 0; index < limit; index++) {
-      this.products.push({
-        id: faker.datatype.uuid(),
-        name: faker.commerce.productName(),
-        price: parseInt(faker.commerce.price(), 10),
-        image: faker.image.imageUrl(),
-        isBlock: faker.datatype.boolean()
-      })
-    }
-  }
-
   async create (data) {
-    const newProduct = {
-      id: faker.datatype.uuid(),
-      ...data
-    }
-    this.products.push(newProduct)
+    const newProduct = await models.Product.create(data)
     return newProduct
   }
 
   async find () {
-    const query = 'SELECT * FROM task'
-    const [data] = await sequelize.query(query)
-    return data
+    const products = await models.Product.findAll({
+      include: ['category']
+    })
+    return products
   }
 
   async findOne (id) {
